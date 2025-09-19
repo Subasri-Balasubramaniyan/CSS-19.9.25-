@@ -1,0 +1,64 @@
+/* General styles */
+.blog h1{
+    text-align: center;
+    padding: 10px;
+    background-color: blanchedalmond;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border-radius: 30px;
+}
+.menu ul{
+    display:flex;
+    list-style-type:none;
+    gap: 10px;
+    text-decoration: none;
+}
+.menu li a{
+    text-decoration: none;
+}
+.posts{
+    display: flex;
+    padding: 10px;
+}
+.post1{
+     border: solid black 2px;
+     padding: 10px;
+     margin-left: 5px;
+}
+input{
+    width: 300px;
+    padding: 10px;
+    
+}
+/* Pesudo elements */
+.head::first-letter{
+    color: blue;
+    font-style: italic;
+    font-size: 35px;
+    font-weight: bold;
+}
+.content::first-line{
+    color: crimson;
+   font-family: cursive;
+}
+.post1 p:first-child::before{
+    content: "NEW!!!!";
+    color:green;
+    font-weight: bold;
+}
+.content::after{
+    content: "Thank you!!!";
+    font-weight: bold;
+    font-size: 20px;
+    color: darkred;
+}
+::selection{
+    background-color: yellowgreen;
+}
+.menu li::marker{
+    color: red;
+    content: "✅";
+}
+input::placeholder{
+    color: orchid;
+    font-style: italic;
+}

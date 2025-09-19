@@ -1,0 +1,127 @@
+/* 1. Charset */
+@charset "UTF-8";
+
+/* 2. Font face */
+@font-face {
+  font-family: "SimpleFont";
+  src: url("https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu4mxP.woff2")
+    format("woff2");
+}
+
+/* 3. Cascade layers */
+@layer reset, base, theme;
+
+/* Reset layer */
+@layer reset {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+}
+
+/* Base layer */
+@layer base {
+  body {
+    font-family: "SimpleFont", sans-serif;
+    background: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .card {
+    background: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s;
+  }
+
+}
+h2{
+    color: red;
+}
+
+/* Theme layer (overrides base if conflicts) */
+@layer theme {
+  .card h2 {
+    color: darkslateblue;
+  }
+  button {
+    background: darkslateblue;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  button:hover {
+    background: slateblue;
+  }
+}
+h2{
+    color: pink;
+}
+
+/* 4. Media queries */
+@media (min-width: 600px) {
+  .card {
+    width: 400px;
+  }
+}
+
+@media (max-width: 600px) {
+  .card {
+    width: 90%;
+  }
+}
+
+/* 5. Keyframes */
+@keyframes scaleUp {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.05);
+  }
+}
+
+.card:hover {
+  animation: scaleUp 0.3s forwards;
+}
+
+/* 6. Supports */
+@supports (display: grid) {
+  .card {
+    display: grid;
+    gap: 10px;
+  }
+}
+@supports not (display: grid) {
+  .card {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/* 7. Counter-style */
+@counter-style stars {
+  system: cyclic;
+  symbols: "⭐";
+  suffix: " ";
+}
+ul {
+  list-style: stars;
+  padding: 20px;
+}
+
+/* 8. Namespace (for SVG styling only) */
+@namespace svg url("http://www.w3.org/2000/svg");
+svg|circle {
+  fill: crimson;
+  stroke: black;
+  stroke-width: 2;
+}
